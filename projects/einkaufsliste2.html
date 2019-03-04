@@ -1,3 +1,96 @@
 <html>
 
+<head>
+	<meta charset="utf-8">
+	<title>Einkaufsliste</title>
+	
+<script>
+
+var liste = ["Salat", "Birne", "Halloumi", "Apfel"];
+
+function hinzufuegen() {
+	var eingabe = document.getElementById("eingabe").value;
+	liste[liste.length] = eingabe;
+	ausgabe();
+}
+
+function ausgabe() {
+	var ausgabeText = "Deine Liste beinhaltet: <br>";
+	for(var i = 0; i < liste.length; i++) {
+		ausgabeText += i+1 + ". " + liste[i] + "<br>";
+	}
+	document.getElementById("ausgabe").innerHTML = ausgabeText;
+}
+
+function sortieren() {
+	liste.sort();
+	ausgabe();
+}
+
+function selectionSort() {
+	for(var i = 0; i < liste.length; i++){
+		//set min to the current iteration of i
+		var min = i;
+		for(var j = i+1; j < liste.length; j++){
+			if(liste[j] < liste[min]){
+			   min = j;
+			}
+		}
+		vertausche(i, min);
+	}
+	ausgabe();
+}
+
+function bubbleSort() {
+	var vertauscht = true;
+	while(vertauscht == true) {
+		vertauscht = false;
+		for (var i = 0; i < liste.length - 1; i++) {
+			if(liste[i] > liste[i+1]){
+				//vertauschen
+				vertauscht = true;
+				vertausche(i, i+1);
+			}
+		}
+	}
+	ausgabe();
+}
+
+function vertausche(p, k) {
+	var hilfe = liste[p];
+	liste[p] = liste[k];
+	liste[k] = hilfe;
+}
+
+function mischen() {
+	for(var i = 0; i < 100; i++) {
+		var zz1 = Math.floor(Math.random()*liste.length);
+		var zz2 = Math.floor(Math.random()*liste.length);
+		vertausche(zz1, zz2);
+	}
+	ausgabe();
+}
+
+</script>
+</head>
+
+<body>
+<h1>Einkaufsliste 1.1</h1>
+
+<input type="text" id="eingabe">
+<input type="button" value="Hinzufügen" onclick="hinzufuegen()">
+<br>
+<input type="button" value="Sortieren" onclick="sortieren()">
+<input type="button" value="SelectionSort" onclick="selectionSort()">
+<input type="button" value="BubbleSort" onclick="bubbleSort()">
+<br>
+<input type="button" value="Mischen" onclick="mischen()">
+<p id="ausgabe">noch nichts auf der Liste</p>
+
+<script>
+ausgabe();
+</script>
+
+</body>
+
 </html>
