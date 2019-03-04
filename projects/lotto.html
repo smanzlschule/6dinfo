@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<script>
+
+function generiere() {
+	var zahlen = [];
+	
+	for(var i = 0; i < 6; i++){
+		var zz = Math.random()*45 + 0.5;
+		zz = Math.round(zz);
+		zahlen[i] = zz;
+	}
+	zahlen = bubbleSort(zahlen);
+	document.getElementById("ausgabe").innerHTML = zahlen;
+}
+
+function bubbleSort(arr) {
+	var vertauscht = true;
+	while(vertauscht) {
+		vertauscht = false;
+		for (var i = 0; i < arr.length - 1; i++) {
+			if(arr[i] > arr[i+1]){
+				//vertauschen
+				vertauscht = true;
+				var hilfe = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1]=hilfe;
+			}
+		}
+	}
+	return arr;
+}
+
+</script>
+
+</head>
+<body>
+<h1>Lottozahlen</h1>
+
+<input type="button" value="Lottozahlen" onclick="generiere()">
+<p id="ausgabe"></p>
+</body>
+
+</html>

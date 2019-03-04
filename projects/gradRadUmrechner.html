@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8">
+		
+<script>
+
+function gradInRad(){
+	var grad = document.getElementById("eingabeGrad").value;
+	grad = parseFloat(grad);
+	var rad = grad*Math.PI/180;
+	var ausgabe = grad + "° sind " + rad + " rad.";
+	document.getElementById("ausgabe").innerHTML = ausgabe;
+}
+
+function radInGrad(){
+	var p = parseInt(document.getElementById("eingabeGrad").value);
+}
+
+</script>
+</head>
+	
+<body>
+<h1>Umrechnung Gradmaß/Bogenmaß</h1>
+<input type="text" id="eingabeGrad">
+<input type="button" value="Berechne rad" onclick="gradInRad()">
+<p id="ausgabe">Hier steht dann das Ergebnis</p>
+
+</body>
+	
+</html>
