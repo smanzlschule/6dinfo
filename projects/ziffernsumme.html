@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Ziffernsumme</title>
+	
+<script>
+
+function berechne() {
+	var zahl = parseInt(document.getElementById("eingabe").value);
+	
+	var summe = 0;
+	
+	while(zahl != 0) {
+		summe += zahl%10;
+		zahl = Math.floor(zahl/10);
+	}
+	document.getElementById("ausgabe").innerHTML = "Die Quersumme beträgt " + summe + "!";
+}
+
+</script>
+	
+</head>
+
+<body>
+<h1>Ziffernsumme</h1>
+
+<input type="number" id="eingabe"/>
+<input type="button" value="Ziffernsumme" onclick="berechne()"/>
+<p id="ausgabe"></p>
+
+</body>
+
+</html>
