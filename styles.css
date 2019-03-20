@@ -1,7 +1,7 @@
 body {
-	background-image: linear-gradient(to bottom right, midnightblue, skyblue);
-	color: white;
-	font-family: Courier New;
+	background-color: skyblue;
+	color: black;
+	font-family: Arial;
 }
 
 h1 {
@@ -9,17 +9,9 @@ h1 {
 	text-align: center;
 }
 
-a {
-	color: yellow;
-}
-
-a:hover {
-	background-color: skyblue;
-}
-
 td {
 	padding: 10px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid black;
 }
 
 #center {
