@@ -1,0 +1,57 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Primzahltest</title>
+	
+<script>
+
+function primzahltest() {
+	var zahl = document.getElementById("eingabe").value;
+
+	if(isPrim(zahl)) {
+		ausgabeText = zahl + " ist eine Primzahl !!!";
+	}
+	else {
+		ausgabeText = zahl + " ist <b>keine</b> Primzahl !!!";
+	}
+	document.getElementById("ausgabe").innerHTML = ausgabeText;
+}
+
+function isPrim(zahl) {
+	for(var i = 2; i < zahl; i++) {
+		if(zahl%i == 0) {
+			// i ist Teiler von zahl
+			return false
+		}
+	}
+	return true;
+}
+
+function primzahlen() {
+	var primzahlen = [];
+	for(var i = 0; i <= 100; i++) {
+		if(isPrim(i)) {
+			primzahlen[primzahlen.length] = i;
+		}
+	}
+	document.getElementById("ausgabeAllePrim").innerHTML = primzahlen;
+	alert(primzahlen.length);
+}
+
+</script>
+	
+</head>
+
+<body>
+<h1>Primzahltest</h1>
+
+<input type="number" id="eingabe"/>
+<input type="button" value="Primzahl ???" onclick="primzahltest()"/>
+<p id="ausgabe"></p>
+<input type="button" value="Die Primzahlen <= 100" onclick="primzahlen()"/>
+<p id="ausgabeAllePrim"></p>
+
+</body>
+
+</html>
