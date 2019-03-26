@@ -30,13 +30,13 @@ function isPrim(zahl) {
 
 function primzahlen() {
 	var primzahlen = [];
-	for(var i = 0; i <= 100; i++) {
+	for(var i = 2; i <= 100; i++) {
 		if(isPrim(i)) {
 			primzahlen[primzahlen.length] = i;
 		}
 	}
 	document.getElementById("ausgabeAllePrim").innerHTML = primzahlen;
-	alert(primzahlen.length);
+	alert("Anzahl der Primzahlen < 100: " + primzahlen.length);
 }
 
 </script>
