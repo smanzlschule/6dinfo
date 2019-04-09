@@ -1,0 +1,93 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Caesar</title>
+	
+<script>
+
+function verschluesseln() {
+	var key = parseInt(document.getElementById("key1").value);
+    var text = document.getElementById("eingabe1").value;
+	
+	var ausgabe = "";
+	for(var i = 0; i < text.length; i++) {
+		var code = text.charCodeAt(i);
+		var  newCode = encryptCode(code, key);
+		ausgabe += String.fromCharCode(newCode);
+	}
+		
+	document.getElementById("ausgabe1").innerHTML = ausgabe;
+}
+
+function encryptCode(code, key) {
+	// Kleinbuchstaben
+	if(code >= 97 && code <= 122) {
+		code += key;
+		if(code > 122) { 
+			code -= 26; 
+		}
+	}
+	//Großbuchstaben
+	if(code >= 65 && code <= 90) {
+		code += key;
+		if(code > 90) { 
+			code -= 26; 
+		}
+	}
+	return code;
+}
+
+function entschluesseln() {
+	var key = parseInt(document.getElementById("key2").value);
+    var text = document.getElementById("eingabe2").value;
+    
+	var ausgabe = "";
+	for(var i = 0; i < text.length; i++) {
+		var code = text.charCodeAt(i);
+		var  newCode = decryptCode(code, key);
+		ausgabe += String.fromCharCode(newCode);
+	}
+		
+	document.getElementById("ausgabe2").innerHTML = ausgabe;
+}
+
+function decryptCode(code, key) {
+	// Kleinbuchstaben
+	if(code >= 97 && code <= 122) {
+		code -= key;
+		if(code < 97) { 
+			code += 26; 
+		}
+	}
+	//Großbuchstaben
+	if(code >= 65 && code <= 90) {
+		code -= key;
+		if(code < 65) { 
+			code += 26; 
+		}
+	}
+	return code;
+}
+
+</script>
+	
+</head>
+
+<body>
+<h1>Cäsar-Verschlüsselung</h1>
+
+<h3>Verschlüsselung</h3>
+Schlüssel: <input type="number" id="key1"/><br>
+<textarea id="eingabe1" rows="4" cols="50"></textarea><br>
+<input type="button" value="Verschlüsseln" onclick="verschluesseln()"/>
+<p id="ausgabe1"></p>
+
+<h3>Entschlüsselung</h3>
+Schlüssel: <input type="number" id="key2"/><br>
+<textarea id="eingabe2" rows="4" cols="50"></textarea><br>
+<input type="button" value="Entschlüsseln" onclick="entschluesseln()"/>
+<p id="ausgabe2"></p>
+
+</body>
+
+</html>
