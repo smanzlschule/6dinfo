@@ -16,7 +16,7 @@ function verschluesseln() {
 		ausgabe += String.fromCharCode(newCode);
 	}
 		
-	document.getElementById("ausgabe1").innerHTML = ausgabe;
+	document.getElementById("ausgabe1").value = ausgabe;
 }
 
 function encryptCode(code, key) {
@@ -48,7 +48,7 @@ function entschluesseln() {
 		ausgabe += String.fromCharCode(newCode);
 	}
 		
-	document.getElementById("ausgabe2").innerHTML = ausgabe;
+	document.getElementById("ausgabe2").value = ausgabe;
 }
 
 function decryptCode(code, key) {
@@ -79,14 +79,14 @@ function decryptCode(code, key) {
 <h3>Verschlüsselung</h3>
 Schlüssel: <input type="number" id="key1"/><br>
 <textarea id="eingabe1" rows="4" cols="50"></textarea><br>
-<input type="button" value="Verschlüsseln" onclick="verschluesseln()"/>
-<p id="ausgabe1"></p>
+<input type="button" value="Verschlüsseln" onclick="verschluesseln()"/><br>
+<textarea id="ausgabe1" rows="4" cols="50"></textarea><br>
 
 <h3>Entschlüsselung</h3>
 Schlüssel: <input type="number" id="key2"/><br>
 <textarea id="eingabe2" rows="4" cols="50"></textarea><br>
-<input type="button" value="Entschlüsseln" onclick="entschluesseln()"/>
-<p id="ausgabe2"></p>
+<input type="button" value="Entschlüsseln" onclick="entschluesseln()"/><br>
+<textarea id="ausgabe2" rows="4" cols="50"></textarea><br>
 
 </body>
 
