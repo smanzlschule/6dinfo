@@ -1,6 +1,7 @@
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight);
 	fill(0);
+	textSize(20);
 }
 
 var width = window.innerWidth;
@@ -18,7 +19,9 @@ function draw() {
 	background("lightgray");
 	ballMove();
 	ellipse(x, y, radius*2, radius*2);
-	ellipse(width / 2, height / 2, accelerationX);
+	
+	text("accelerationX: "+accelerationX, 200, 30);
+	text("pAccelerationX: "+pAccelerationX, 200, 60);
 }
 
 function ballMove() {
