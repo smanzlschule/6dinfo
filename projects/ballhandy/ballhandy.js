@@ -18,6 +18,7 @@ function draw() {
 	background("lightgray");
 	ballMove();
 	ellipse(x, y, radius*2, radius*2);
+	ellipse(width / 2, height / 2, accelerationX);
 }
 
 function ballMove() {
