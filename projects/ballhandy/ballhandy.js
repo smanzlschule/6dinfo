@@ -20,8 +20,8 @@ function draw() {
 	ballMove();
 	ellipse(x, y, radius*2, radius*2);
 	
-	text("accelerationX: "+accelerationX, 200, 30);
-	text("pAccelerationX: "+pAccelerationX, 200, 60);
+	text("rotationX : "+rotationX , 200, 30);
+	text("pRotationX : "+pRotationX, 200, 60);
 }
 
 function ballMove() {
