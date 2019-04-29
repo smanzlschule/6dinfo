@@ -20,13 +20,13 @@ function draw() {
 	ballMove();
 	ellipse(x, y, radius*2, radius*2);
 	
-	text("rotationX : "+rotationX , 200, 30);
-	text("pRotationX : "+pRotationX, 200, 60);
+	text("rotationX: "+rotationX, 200, 30);
+	text("pRotationX: "+pRotationX, 200, 60);
 }
 
 function ballMove() {
-	x = x + accelerationX;
-	y += accelerationY;
+	x = x + rotationX/45;
+	y += rotationY/45;
 	
 	if(x >= width-radius){
 		vx = -vx;
