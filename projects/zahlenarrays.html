@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<script>
+var eingabeArray = [];
+
+function einlesen() {
+	//1. Text einlesen
+	var eingabe = document.getElementById("eingabe").value;
+	//2. Text -> TextArray
+	eingabeArray = eingabe.split(",");
+	//3. TextArray -> ZahlenArray
+	for(var i = 0; i < eingabeArray.length; i++) {
+		eingabeArray[i] = parseInt(eingabeArray[i]);
+	}
+	ausgabe();
+}
+
+function testArray() {
+	//4. Überprüfung
+	var sortiert = aufsteigendSortiert(eingabeArray);
+	if(sortiert == true) {
+		document.getElementById("ausgabe").innerHTML = "Das Array ist aufsteigend sortiert!";
+	}
+	else {
+		document.getElementById("ausgabe").innerHTML = "Das Array ist <b>nicht</b> aufsteigend sortiert!";
+	}
+}
+
+function aufsteigendSortiert(zahlen) {
+	for(var i = 0; i < zahlen.length-1; i++) {
+		if(zahlen[i] > zahlen[i+1]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function mischen() {
+	for(var i = 0; i < 100; i++) {
+		var zz1 = parseInt(Math.random()*eingabeArray.length);
+		var zz2 = parseInt(Math.random()*eingabeArray.length);
+		var hilfe = eingabeArray[zz2];
+		eingabeArray[zz2] = eingabeArray[zz1];
+		eingabeArray[zz1] = hilfe;
+	}
+	ausgabe();
+}
+
+function sortieren() {
+	//eingabeArray.sort(); //geht nicht für Zahlen > 9!
+	var vertauscht = true;
+	while(vertauscht) {
+		vertauscht = false;
+		for (var i = 0; i < eingabeArray.length - 1; i++) {
+			if(eingabeArray[i] > eingabeArray[i+1]){
+				//vertauschen
+				vertauscht = true;
+				var hilfe = eingabeArray[i];
+				eingabeArray[i] = eingabeArray[i+1];
+				eingabeArray[i+1]=hilfe;
+			}
+		}
+	}
+	ausgabe();
+}
+
+function ausgabe() {
+	document.getElementById("ausgabeArray").innerHTML = eingabeArray;
+}
+
+</script>
+</head>
+
+<body>
+<h1>Zahlenarray</h1>
+<input type="text" id="eingabe" size="50"/><br>
+<input type="button" value="Einlesen" onclick="einlesen()"/>
+<input type="button" value="Überprüfen" onclick="testArray()"/><br>
+<input type="button" value="Mischen" onclick="mischen()"/><br>
+<input type="button" value="Sortieren" onclick="sortieren()"/>
+
+<p id="ausgabe">Ist das Array sortiert???</p>
+<p id="ausgabeArray"></p>
+</body>
+</html>
